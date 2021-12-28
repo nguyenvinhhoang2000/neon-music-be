@@ -1,0 +1,51 @@
+POST http://localhost:3001/api/auth/register
+Content-Type: application/json
+
+{
+    "username": "vinhhoang@gmail.com",
+    "password": "123123",
+    "role": "user",
+    "name": "Nguyễn Thùy Hoang",
+    "img": ""
+    
+}
+
+
+###
+POST http://localhost:3001/api/auth/login
+Content-Type: application/json
+
+{
+    "username": "nguyenvinhhoang2000@gmail.com",
+    "password": "123123"
+}
+
+
+###
+GET http://localhost:3001/api/songs
+Content-Type: application/json
+
+
+
+###
+GET http://localhost:3001/api/favorite-song
+Authorization: ikjkjk eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTg3ZDhmM2QwNWM3OWQwYjFkN2UzYzQiLCJpYXQiOjE2MzYzNjM3OTB9.9eDyUI7buiamULmYn_o7FRGleO7o7nyFw-OW8Jefq-A
+
+
+
+###
+POST http://localhost:3001/api/favorite-song
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTg3ZDhmM2QwNWM3OWQwYjFkN2UzYzQiLCJpYXQiOjE2MzYzNjM3OTB9.9eDyUI7buiamULmYn_o7FRGleO7o7nyFw-OW8Jefq-A
+
+{
+    "_id": "617fe4977b5a45996669796b"
+}
+
+
+
+###
+DELETE http://localhost:3001/api/favorite-song/617fe4fa7b5a45996669796f
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTg3ZDhmM2QwNWM3OWQwYjFkN2UzYzQiLCJpYXQiOjE2MzYzNTA2Nzl9.JACBc_yzLz_QoULyB9sFuEzV-PP8u-2tdvH6zRCI3bo
+
