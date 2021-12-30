@@ -18,10 +18,11 @@ router.post("/register", upload.single("image"), async (req, res) => {
     //Check for exitsting user
     const user = await User.findOne({ username });
 
-    if (user)
+    if (user) {
       return res
         .status(400)
         .json({ success: false, message: "Tài khoản đã được đăng ký" });
+    }
 
     //upload image
     const result = await cloudinary.uploader.upload(req.file.path, {
