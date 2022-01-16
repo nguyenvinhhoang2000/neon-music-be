@@ -16,7 +16,25 @@ router.get("/", async (req, res) => {
     res.json({ success: true, songs });
   } catch (error) {
     console.log(error);
-    res.status(500).json({ success: false, message: "Internal server errorr" });
+    res.status(500).json({ success: false, message: "Có lỗi ở phía server" });
+  }
+});
+
+//@route GET api/songs
+//@desc Get song
+//@access Private
+router.post("/search", async (req, res) => {
+  const query = req.body.search;
+  if (query !== "") {
+    try {
+      var regex = new RegExp(query, "i"); // 'i' makes it case insensitive
+      Song.find({ name_song: regex }, function (err, q) {
+        return res.send(q);
+      });
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({ success: false, message: "Có lỗi ở phía server" });
+    }
   }
 });
 
@@ -242,4 +260,21 @@ router.get("/myupload", verifyToken, async (req, res) => {
     res.status(500).json({ success: false, message: "Có lỗi ở phía server" });
   }
 });
+
+//-------admin-------------
+//@route GET api/songs/admin/
+//@desc Get song
+//@access Private
+router.get("/admin/", verifyToken, async (req, res) => {
+  try {
+    const songs = await Song.find().populate({
+      path: "id_user",
+    });
+    res.json({ success: true, songs });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ success: false, message: "Có lỗi ở phía server" });
+  }
+});
+
 module.exports = router;

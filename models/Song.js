@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const SongSchema = new Schema({
-  id_user: { type: String, required: true },
+  id_user: { type: Schema.Types.ObjectId, ref: "users" },
 
   name_song: { type: String, required: true },
   url_song: { type: String, required: true },

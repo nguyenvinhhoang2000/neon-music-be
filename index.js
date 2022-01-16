@@ -7,6 +7,7 @@ const cors = require("cors");
 const authRouter = require("./Routes/auth");
 const songRouter = require("./Routes/song");
 const favoriteSongRouter = require("./Routes/favoriteSong");
+const Playlist = require("./Routes/playlist");
 
 const connecDB = async () => {
   try {
@@ -38,6 +39,7 @@ app.use(bodyParser.json());
 app.use("/api/auth", authRouter);
 app.use("/api/songs", songRouter);
 app.use("/api/favorite-song", favoriteSongRouter);
+app.use("/api/playlist", Playlist);
 
 const PORT = 3001;
 
